@@ -3,254 +3,594 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026最新版Clash下载地址 | Clash Download Center</title>
-    <!-- 引入 Tailwind CSS 和 FontAwesome 图标库 -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>2026最新版Clash下载地址 | Clash Official Download Center | Clash官网下载地址</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', 'Helvetica Neue', sans-serif; }
-        .system-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .system-card:hover { transform: translateY(-4px); }
+        /* 现代设计变量 */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --win-color: #0078d4;
+            --mac-color: #ff5f56;
+            --and-color: #3ddc84;
+            --ios-color: #007aff;
+            --doc-color: #14b8a6;
+        }
+
+        /* 基础重置 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* 顶部导航栏 - 毛玻璃效果 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: linear-gradient(to right, #818cf8, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 导航按钮悬停与激活 */
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.active[data-target="windows"] { border-color: var(--win-color); box-shadow: 0 0 10px rgba(0,120,212,0.3); }
+        .nav-btn.active[data-target="macos"] { border-color: var(--mac-color); box-shadow: 0 0 10px rgba(255,95,86,0.3); }
+        .nav-btn.active[data-target="android"] { border-color: var(--and-color); box-shadow: 0 0 10px rgba(61,220,132,0.3); }
+        .nav-btn.active[data-target="ios"] { border-color: var(--ios-color); box-shadow: 0 0 10px rgba(0,122,255,0.3); }
+
+        /* 主体容器 */
+        .container {
+            max-width: 900px;
+            width: 92%;
+            margin: 50px auto 20px auto;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* 系统版块卡片 */
+        .system-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            scroll-margin-top: 100px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .system-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .app-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* 下载网格与按钮 */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+
+        .download-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .version-tag {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .version-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 按钮容器，用于多版本下载按钮垂直排列 */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .dl-btn {
+            display: block;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .dl-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 颜色区分 */
+        .windows-sec .dl-btn { background: var(--win-color); }
+        .windows-sec .dl-btn:hover { background: #005a9e; }
+        
+        .macos-sec .dl-btn { background: var(--mac-color); }
+        .macos-sec .dl-btn:hover { background: #e04b42; }
+        
+        .android-sec .dl-btn { background: var(--and-color); color: #0f172a; }
+        .android-sec .dl-btn:hover { background: #2cb76c; }
+        
+        .ios-sec .dl-btn { background: var(--ios-color); }
+        .ios-sec .dl-btn:hover { background: #005ecb; }
+
+        /* 系统图标占位符 */
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .icon-win { background: rgba(0, 120, 212, 0.15); color: var(--win-color); }
+        .icon-mac { background: rgba(255, 95, 86, 0.15); color: var(--mac-color); }
+        .icon-and { background: rgba(61, 220, 132, 0.15); color: var(--and-color); }
+        .icon-ios { background: rgba(0, 122, 255, 0.15); color: var(--ios-color); }
+
+        /* 底部文档入口 */
+        .docs-section {
+            background: rgba(20, 184, 166, 0.05);
+            border: 1px dashed rgba(20, 184, 166, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .docs-title {
+            color: var(--doc-color);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .docs-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .docs-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .doc-link-btn {
+            background: var(--doc-color);
+            color: #0f172a;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .doc-link-btn:hover {
+            background: #0d9488;
+            transform: translateY(-1px);
+        }
+
+        .doc-link-btn.secondary {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--text-main);
+        }
+
+        .doc-link-btn.secondary:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* 现代化页脚 */
+        footer {
+            background: rgba(10, 15, 30, 0.9);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-notice {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.8rem;
+            line-height: 1.7;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .legal-title {
+            color: #ef4444;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+        }
+
+        .copyright {
+            margin-top: 15px;
+            color: rgba(148, 163, 184, 0.6);
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+            .nav-btn {
+                flex: 1;
+                justify-content: center;
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .system-section {
+                padding: 20px;
+            }
+            .docs-btn-group {
+                flex-direction: column;
+            }
+            .doc-link-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between antialiased">
+<body>
 
-    <!-- 顶部导航 / 头部 -->
-    <header class="w-full max-w-6xl mx-auto px-6 pt-12 text-center md:text-left">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div>
-                <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                    2026最新版Clash下载
-                </h1>
-                <p class="text-sm text-slate-400 mt-1">根据您的设备架构，选择对应的客户端下载安装</p>
-            </div>
-            <div class="text-xs bg-slate-200/60 text-slate-500 px-3 py-1.5 rounded-full flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                所有节点服务正常运行中
-            </div>
-        </div>
+    <!-- 顶部导航 -->
+    <header>
+        <div class="logo">⚡ Clash下载</div>
+        <nav>
+            <a href="#windows" class="nav-btn active" data-target="windows">🪟 Windows</a>
+            <a href="#macos" class="nav-btn" data-target="macos">🍎 macOS</a>
+            <a href="#android" class="nav-btn" data-target="android">🤖 Android</a>
+            <a href="#ios" class="nav-btn" data-target="ios">📱 iOS / iPadOS</a>
+        </nav>
     </header>
 
-    <!-- 主体卡片区域 -->
-    <main class="w-full max-w-6xl mx-auto px-6 py-12 flex-grow">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <!-- Windows 卡片 -->
-            <div id="card-windows" class="system-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
-                        <i class="fab fa-windows"></i>
-                    </div>
-                    <h2 class="text-lg font-bold text-slate-900">Windows 系统</h2>
-                    <p class="text-xs text-slate-400 mt-0.5">支持 Win10 / Win11 及以上</p>
-                    
-                    <div class="mt-6">
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <div class="flex items-center justify-between mb-1">
-                                <p class="text-sm font-semibold text-slate-700">Clash Party</p>
-                                <span class="text-[10px] text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded font-medium">Core</span>
-                            </div>
-                            <p class="text-[11px] text-slate-400">稳定推荐 · 请根据 CPU 架构下载</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 space-y-2">
-                    <!-- 细分下载按钮 -->
-                    <a href="#download-clash-party-win-x64" id="btn-win-x64" class="w-full bg-slate-900 hover:bg-indigo-600 text-white text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between">
-                        <span><i class="fas fa-arrow-down mr-1.5 text-[10px]"></i>下载 x86_64 版本</span>
-                        <span class="text-[10px] opacity-60">绝大多数电脑</span>
-                    </a>
-                    <a href="#download-clash-party-win-arm64" id="btn-win-arm64" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between">
-                        <span><i class="fas fa-arrow-down mr-1.5 text-[10px]"></i>下载 ARM64 版本</span>
-                        <span class="text-[10px] opacity-60">Surface/掌机等</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- iOS 卡片 -->
-            <div id="card-ios" class="system-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-zinc-900 text-white flex items-center justify-center text-xl mb-4">
-                        <i class="fab fa-apple"></i>
-                    </div>
-                    <h2 class="text-lg font-bold text-slate-900">iOS (iPhone / iPad)</h2>
-                    <p class="text-xs text-slate-400 mt-0.5">需要非中国大陆 App Store 账号</p>
-                    
-                    <div class="mt-6 space-y-3">
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-semibold text-slate-700">Shadowrocket</p>
-                                <p class="text-[11px] text-slate-400">小火箭 · 规则功能强大</p>
-                            </div>
-                            <span class="text-[10px] text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded font-medium">付费首选</span>
-                        </div>
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
-                            <div>
-                                <p class="text-sm font-semibold text-slate-700">Clash Mi</p>
-                                <p class="text-[11px] text-slate-400">新晋黑马 · 界面现代精美</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 space-y-2">
-                    <a href="#download-shadowrocket" class="w-full bg-slate-900 hover:bg-indigo-600 text-white text-center py-2 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-center gap-2">
-                        获取 Shadowrocket
-                    </a>
-                    <a href="#download-clash-mi" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-center py-2 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-center gap-2">
-                        获取 Clash Mi
-                    </a>
-                </div>
-            </div>
-
-            <!-- macOS 卡片 -->
-            <div id="card-macos" class="system-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">
-                        <i class="fab fa-apple"></i>
-                    </div>
-                    <h2 class="text-lg font-bold text-slate-900">macOS 系统</h2>
-                    <p class="text-xs text-slate-400 mt-0.5">区分 Intel 与 Apple 芯片</p>
-                    
-                    <div class="mt-6">
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <div class="flex items-center justify-between mb-1">
-                                <p class="text-sm font-semibold text-slate-700">Clash Party</p>
-                            </div>
-                            <p class="text-[11px] text-slate-400">原生双架构支持，提供更佳功耗比</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 space-y-2">
-                    <!-- 细分下载按钮 -->
-                    <a href="#download-clash-party-mac-silicon" id="btn-mac-silicon" class="w-full bg-slate-900 hover:bg-indigo-600 text-white text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between">
-                        <span><i class="fas fa-arrow-down mr-1.5 text-[10px]"></i>下载 Silicon 版本</span>
-                        <span class="text-[10px] opacity-60">M1/M2/M3/M4 芯片</span>
-                    </a>
-                    <a href="#download-clash-party-mac-intel" id="btn-mac-intel" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between">
-                        <span><i class="fas fa-arrow-down mr-1.5 text-[10px]"></i>下载 Intel 版本</span>
-                        <span class="text-[10px] opacity-60">老款 Mac 电脑</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Android 卡片 -->
-            <div id="card-android" class="system-card bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-xl mb-4">
-                        <i class="fab fa-android"></i>
-                    </div>
-                    <h2 class="text-lg font-bold text-slate-900">Android 安卓</h2>
-                    <p class="text-xs text-slate-400 mt-0.5">支持手机、平板和电视盒子</p>
-                    
-                    <div class="mt-6">
-                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <div class="flex items-center justify-between mb-1">
-                                <p class="text-sm font-semibold text-slate-700">Flclash</p>
-                                <span class="text-[10px] text-green-600 bg-green-50 px-1.5 py-0.5 rounded font-medium">New</span>
-                            </div>
-                            <p class="text-[11px] text-slate-400">基于 Flutter 开发，动画丝滑流畅</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 space-y-2">
-                    <!-- 细分下载按钮 -->
-                    <a href="#download-flclash-v8a" id="btn-android-v8a" class="w-full bg-slate-900 hover:bg-indigo-600 text-white text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between">
-                        <span><i class="fas fa-arrow-down mr-1.5 text-[10px]"></i>下载 arm64-v8a APK</span>
-                        <span class="text-[10px] opacity-60">新机首选/64位</span>
-                    </a>
-                    <a href="#download-flclash-v7a" id="btn-android-v7a" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between">
-                        <span><i class="fas fa-arrow-down mr-1.5 text-[10px]"></i>下载 armeabi-v7a APK</span>
-                        <span class="text-[10px] opacity-60">老旧机型/32位/电视</span>
-                    </a>
-                </div>
-            </div>
-
+    <div class="container">
+        
+        <!-- 主视觉头部 -->
+        <div class="hero">
+            <h1>2026最新版Clash下载地址</h1>
+            <p>选择您的设备系统，获取最适合您的网络代理客户端</p>
         </div>
-    </main>
 
-    <!-- 底部页脚声明 -->
-    <footer class="w-full max-w-6xl mx-auto px-6 py-8 border-t border-slate-200/60 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-        <div>
-            <p>© 2026 下载中心. 版权所有.</p>
-            <p class="mt-1">不知道如何查看 CPU 架构？可以优先尝试下载首选项（深色主按钮）。</p>
-        </div>
-        <div class="flex gap-6">
-            <a href="#tutorial" class="hover:text-indigo-600 transition-colors">使用教程</a>
-            <a href="#status" class="hover:text-indigo-600 transition-colors">服务状态</a>
+        <!-- 1. Windows 区域 -->
+        <section id="windows" class="system-section windows-sec">
+            <div class="section-header">
+                <div class="icon-circle icon-win">W</div>
+                <h2 class="section-title">Windows 客户端</h2>
+            </div>
+            <div class="app-meta">💡 推荐客户端：<strong>Clash Party</strong></div>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">Windows 7 版本</div>
+                        <div class="version-desc">适合 Windows 7 / 8 传统操作系统环境</div>
+                    </div>
+                    <a href="https://v4.gh-proxy.org/https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/clash-party-win7-2.0.0-x64-setup.exe" class="dl-btn">Win7 版</a>
+                </div>
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">Windows10/11 64位</div>
+                        <div class="version-desc">适合绝大多数主流 Intel / AMD 64位处理器</div>
+                    </div>
+                    <a href="https://v4.gh-proxy.org/https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/clash-party-windows-2.0.0-x64-setup.exe" class="dl-btn">64位版本</a>
+                </div>
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">Windows10/11 ARM64</div>
+                        <div class="version-desc">适合使用骁龙等 ARM 架构的轻薄本设备</div>
+                    </div>
+                    <a href="https://v4.gh-proxy.org/https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/clash-party-windows-2.0.0-arm64-setup.exe" class="dl-btn">ARM64版本</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. macOS 区域 -->
+        <section id="macos" class="system-section macos-sec">
+            <div class="section-header">
+                <div class="icon-circle icon-mac">M</div>
+                <h2 class="section-title">macOS 客户端</h2>
+            </div>
+            <div class="app-meta">💡 推荐客户端：<strong>Clash Party</strong></div>
+            <div class="download-grid">
+                <!-- Apple Silicon 芯片：提供双版本下载按钮 -->
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">Apple Silicon 芯片</div>
+                        <div class="version-desc">适合 M1 / M2 / M3 / M4 芯片系列设备</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://v4.gh-proxy.org/https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/clash-party-macos-2.0.0-arm64.pkg" class="dl-btn">macOS 11+</a>
+                        <a href="https://v4.gh-proxy.org/https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/clash-party-catalina-2.0.0-arm64.pkg" class="dl-btn">macOS 10.15+</a>
+                    </div>
+                </div>
+                <!-- Intel 芯片：也同步提供对应的双版本下载按钮 -->
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">Intel 芯片</div>
+                        <div class="version-desc">适合英特尔处理器的旧款 Mac 设备</div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="https://v4.gh-proxy.org/https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/clash-party-macos-2.0.0-x64.pkg" class="dl-btn">macOS 11+</a>
+                        <a href="https://v4.gh-proxy.org/https://github.com/mihomo-party-org/clash-party/releases/download/v2.0.0/clash-party-catalina-2.0.0-x64.pkg" class="dl-btn">macOS 10.15+</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Android 区域 -->
+        <section id="android" class="system-section android-sec">
+            <div class="section-header">
+                <div class="icon-circle icon-and">A</div>
+                <h2 class="section-title">Android 客户端</h2>
+            </div>
+            <div class="app-meta">💡 推荐客户端：<strong>FLClash</strong></div>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">arm64-v8a</div>
+                        <div class="version-desc">适合近年生产的绝大部分 64位 现代安卓机型</div>
+                    </div>
+                    <a href="#" class="dl-btn">下载 v8a 版 (APK)</a>
+                </div>
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">armeabi-v7a</div>
+                        <div class="version-desc">适合老旧安卓机型，兼容性强但性能略逊于v8a</div>
+                    </div>
+                    <a href="#" class="dl-btn">下载 v7a 版 (APK)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. iOS 区域 -->
+        <section id="ios" class="system-section ios-sec">
+            <div class="section-header">
+                <div class="icon-circle icon-ios">I</div>
+                <h2 class="section-title">iOS / iPadOS 客户端</h2>
+            </div>
+            <div class="app-meta">💡 支持客户端列表（请在 App Store 内搜索获取）</div>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">Shadowrocket</div>
+                        <div class="version-desc">俗称“小火箭”，功能强大的老牌代理，支持规则导入</div>
+                    </div>
+                    <a href="#" class="dl-btn">App Store 下载</a>
+                </div>
+                <div class="download-card">
+                    <div>
+                        <div class="version-tag">Clash Mi</div>
+                        <div class="version-desc">全新设计的现代化 iOS 客户端，支持 Clash 核心</div>
+                    </div>
+                    <a href="#" class="dl-btn">App Store 下载</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 快速上手 & 常见问题文档区域 -->
+        <section class="docs-section">
+            <div class="docs-title">📖 新手指南与使用文档</div>
+            <div class="docs-desc">如果您是第一次使用，我们建议您优先阅读配置指南，以便快速完成订阅导入与节点切换。</div>
+            <div class="docs-btn-group">
+                <a href="#tutorial" class="doc-link-btn">📘 订阅配置新手教程</a>
+                <a href="#faq" class="doc-link-btn secondary">❔ 常见连接问题排查 (FAQ)</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 底部信息 -->
+    <footer>
+        <div class="footer-content">
+            <!-- 法律合规简单说明 -->
+            <div class="legal-notice">
+                <div class="legal-title">⚠️ 法律与合规性声明</div>
+                本站所提供的第三方客户端工具均来自网络开源或官方应用商店，本站仅提供软件下载引导与聚合整理服务，不提供、不分发任何非法网络访问通道或订阅节点。请您在使用上述工具时，务必严格遵守您所在国家和地区的相关法律法规。任何用户因违反本地法律而产生的法律责任，均由使用者本人自行承担，本站不承担任何连带责任。
+            </div>
+            
+            <!-- 版权归属 -->
+            <div class="copyright">
+                &copy; 2026 Connect Hub. 保留所有权利。所有软件商标及其著作权归其各自的开发者/开发团队所有。
+            </div>
         </div>
     </footer>
 
-    <!-- 高级智能系统与架构识别脚本 -->
+    <!-- 交互逻辑：平滑滚动与导航激活态自动切换 -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const userAgent = navigator.userAgent.toLowerCase();
-            let detectedCardId = null;
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.system-section');
 
-            // 1. 基础系统高亮识别
-            if (userAgent.indexOf("win") !== -1) {
-                detectedCardId = "card-windows";
-            } else if (userAgent.indexOf("mac") !== -1 && userAgent.indexOf("iphone") === -1 && userAgent.indexOf("ipad") === -1) {
-                detectedCardId = "card-macos";
-            } else if (userAgent.indexOf("iphone") !== -1 || userAgent.indexOf("ipad") !== -1) {
-                detectedCardId = "card-ios";
-            } else if (userAgent.indexOf("android") !== -1) {
-                detectedCardId = "card-android";
-            }
-
-            if (detectedCardId) {
-                const activeCard = document.getElementById(detectedCardId);
-                if (activeCard) {
-                    activeCard.classList.remove("border-slate-100", "shadow-sm");
-                    activeCard.classList.add("border-indigo-500", "ring-4", "ring-indigo-500/10", "shadow-md");
-                    
-                    const badge = document.createElement("div");
-                    badge.className = "text-[10px] font-bold tracking-wider bg-indigo-600 text-white px-2 py-0.5 rounded-full absolute -top-2.5 left-6 shadow-sm";
-                    badge.innerText = "当前设备系统";
-                    activeCard.style.position = "relative";
-                    activeCard.appendChild(badge);
-                }
-            }
-
-            // 2. 高级架构细节推荐 (针对 Mac / 其它支持高级识别的浏览器)
-            try {
-                // 针对 Mac 智能识别：如果是 Mac 系统，判断其硬件架构
-                if (detectedCardId === "card-macos") {
-                    const btnSilicon = document.getElementById("btn-mac-silicon");
-                    const btnIntel = document.getElementById("btn-mac-intel");
-
-                    // 利用 WebGL 渲染器或者新的 UserAgent Data API 识别 Apple 芯片
-                    // M系列芯片的 WebGL 渲染器通常包含 "Apple" 字段而 Intel Mac 则是 "Intel"
-                    const canvas = document.createElement('canvas');
-                    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                    const debugInfo = gl ? gl.getExtension('WEBGL_debug_renderer_info') : null;
-                    const renderer = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_VENDOR_String) : '';
-
-                    if (/apple/i.test(renderer)) {
-                        // 检测为 Apple Silicon (M1/M2/M3/M4)
-                        setButtonRecommendation(btnSilicon, btnIntel, "推荐您的芯片");
-                    } else if (/intel/i.test(renderer)) {
-                        // 检测为 Intel 芯片
-                        setButtonRecommendation(btnIntel, btnSilicon, "推荐您的芯片");
-                    }
-                }
-            } catch (e) {
-                console.log("高级架构自动识别不可用，用户可手动选择。");
-            }
-
-            // 辅助函数：调整按钮样式，突出更精准的推荐版本
-            function setButtonRecommendation(recBtn, otherBtn, text) {
-                if(!recBtn || !otherBtn) return;
-                // 让更精准的按钮高亮
-                recBtn.className = "w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between";
-                // 增加推荐文字
-                const rightSpan = recBtn.querySelector('span:last-child');
-                if(rightSpan) rightSpan.innerText = text;
-                
-                // 让另一个按钮稍微变淡
-                otherBtn.className = "w-full bg-slate-100 hover:bg-slate-200 text-slate-500 text-center py-2.5 px-4 rounded-xl text-xs font-medium transition-colors flex items-center justify-between";
-            }
+        // 1. 点击导航按钮平滑高亮
+        navButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
         });
+
+        // 2. 页面滚动时自动高亮对应的顶部导航（IntersectionObserver 监听）
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -60% 0px', // 触发位置微调
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navButtons.forEach(btn => {
+                        if (btn.getAttribute('data-target') === id) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
